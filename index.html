@@ -11,15 +11,8 @@
 
   <style>
     :root{
-      --ink:#0f172a;          /* text dark */
-      --ink-weak:#475569;     /* text secondary */
-      --muted:#f1f5f9;        /* soft gray bg */
-      --card:#ffffff;
-      --ring:#e2e8f0;
-      --accent:#ff4d2e;       /* sunset mid */
-      --accent2:#ff8a00;      /* sunset end */
-      --shadow:0 10px 40px rgba(2,6,23,.09);
-      --radius:18px;
+      --ink:#0f172a; --ink-weak:#475569; --muted:#f1f5f9; --card:#ffffff; --ring:#e2e8f0;
+      --accent:#ff4d2e; --accent2:#ff8a00; --shadow:0 10px 40px rgba(2,6,23,.09); --radius:18px;
     }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,sans-serif;color:var(--ink);background:#fff}
@@ -33,11 +26,7 @@
     .brand{display:flex;align-items:center;gap:14px}
     .logo{display:flex;align-items:baseline;font-weight:800;letter-spacing:.2px;font-size:26px}
     .logo span{color:#111}
-    .logo .e{
-      background:linear-gradient(90deg,var(--accent) 0%, var(--accent2) 100%);
-      -webkit-background-clip:text;background-clip:text;color:transparent;
-      display:inline-block;transform:translateY(1px)
-    }
+    .logo .e{background:linear-gradient(90deg,var(--accent) 0%, var(--accent2) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;display:inline-block;transform:translateY(1px)}
     .tagline{font-size:13px;color:var(--ink-weak)}
     .navlinks{display:flex;gap:18px;align-items:center}
     .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border-radius:14px;border:1px solid var(--ring);background:#fff;font-weight:600;transition:transform .08s ease, box-shadow .2s ease}
@@ -46,49 +35,43 @@
     .btn.accent{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;border:none}
 
     /* Burger & Mobile Menu */
-    .burger{
-      display:none; width:42px; height:42px; border-radius:12px;
-      border:1px solid var(--ring); background:#fff; cursor:pointer;
-      align-items:center; justify-content:center; padding:0;
-    }
-    .burger:focus-visible{ outline:3px solid #94a3b8; outline-offset:2px }
-    .burger i, .burger i::before, .burger i::after{
-      content:""; display:block; width:20px; height:2px; background:#0f172a; border-radius:2px;
-      transition:transform .2s ease, opacity .2s ease;
-    }
-    .burger i::before{ transform:translateY(-6px) }
-    .burger i::after{ transform:translateY(6px) }
-    .burger.active i{ background:transparent }
-    .burger.active i::before{ transform:rotate(45deg) }
-    .burger.active i::after{ transform:rotate(-45deg) }
-    .mobile-menu{
-      position:fixed; top:64px; right:16px; left:16px; z-index:60;
-      background:#fff; border:1px solid var(--ring); border-radius:16px;
-      box-shadow:var(--shadow); padding:12px; display:none;
-    }
-    .mobile-menu.open{ display:block }
-    .mobile-menu a{
-      display:block; padding:12px 10px; border-radius:12px; font-weight:600;
-    }
-    .mobile-menu a:hover{ background:var(--muted) }
+    .burger{display:none;width:42px;height:42px;border-radius:12px;border:1px solid var(--ring);background:#fff;cursor:pointer;align-items:center;justify-content:center;padding:0}
+    .burger:focus-visible{outline:3px solid #94a3b8;outline-offset:2px}
+    .burger i,.burger i::before,.burger i::after{content:"";display:block;width:20px;height:2px;background:#0f172a;border-radius:2px;transition:transform .2s ease,opacity .2s ease}
+    .burger i::before{transform:translateY(-6px)} .burger i::after{transform:translateY(6px)}
+    .burger.active i{background:transparent} .burger.active i::before{transform:rotate(45deg)} .burger.active i::after{transform:rotate(-45deg)}
+    .mobile-menu{position:fixed;top:64px;right:16px;left:16px;z-index:60;background:#fff;border:1px solid var(--ring);border-radius:16px;box-shadow:var(--shadow);padding:12px;display:none}
+    .mobile-menu.open{display:block}
+    .mobile-menu a{display:block;padding:12px 10px;border-radius:12px;font-weight:600}
+    .mobile-menu a:hover{background:var(--muted)}
 
     /* Hero */
     .hero{padding:56px 0}
-    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
     h1{font-size:46px;line-height:1.06;margin:0 0 14px}
     p.lead{font-size:18px;color:var(--ink-weak);margin:0 0 24px}
 
-    /* Panel demo simple */
+    /* Panel Shortener */
     .panel{background:var(--card);border:1px solid var(--ring);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
     .chip{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:999px;background:#ecfdf5;color:#065f46;border:1px solid #a7f3d0;font-size:12px}
     .field{display:flex;gap:10px}
-    input[type="url"],input[type="text"]{
-      width:100%;padding:14px 14px;border:1px solid var(--ring);
-      border-radius:14px;font-size:15px;background:#fff;outline:none;transition:border-color .15s ease
-    }
+    input[type="url"],input[type="text"]{width:100%;padding:14px;border:1px solid var(--ring);border-radius:14px;font-size:15px;background:#fff;outline:none;transition:border-color .15s ease}
     input[type="url"]:focus,input[type="text"]:focus{border-color:#94a3b8}
     .mini{font-size:12px;color:var(--ink-weak);margin-top:8px}
-    .result-line{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;margin-top:14px}
+
+    /* Result area – fixed & smooth (no layout jump) */
+    #resultWrap{margin-top:14px;border-top:1px dashed var(--ring);padding-top:14px;
+      min-height:230px; /* space is reserved from start */
+      transition:opacity .25s ease, filter .25s ease;
+      opacity:.0; filter:blur(2px);
+    }
+    #resultWrap.show{opacity:1;filter:none}
+    .result-grid{display:grid;grid-template-columns:164px 1fr;gap:14px;align-items:start}
+    .result-line{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+    .short-text{font-size:15px;color:#065f46;word-break:break-word;line-height:1.35}
+    .copy-wrap{display:flex;align-items:center}
+    .qr-box{width:164px;height:164px;border:1px solid var(--ring);border-radius:12px;display:grid;place-items:center;background:#fff}
+    .dl-list a{font-weight:600}
 
     /* Sections */
     section{padding:64px 0}
@@ -112,25 +95,21 @@
 
     /* Video responsive 16:9 */
     .video-wrap{position:relative;width:100%;border:1px solid var(--ring);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);background:#000}
-    .video-wrap::before{content:"";display:block;padding-top:56.25%} /* 16:9 */
+    .video-wrap::before{content:"";display:block;padding-top:56.25%}
     .video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 
     /* Animations */
     .reveal{opacity:0;transform:translateY(12px);transition:opacity .5s ease, transform .5s ease}
     .reveal.show{opacity:1;transform:none}
 
-    /* Responsive */
-    @media (max-width:1024px){
-      .hero-grid{grid-template-columns:1fr}
-    }
-    @media (max-width:920px){
-      .cards,.pricing{grid-template-columns:1fr}
-    }
+    /* Responsive tweaks */
+    @media (max-width:1140px){ .hero-grid{grid-template-columns:1fr} }
+    @media (max-width:920px){ .cards,.pricing{grid-template-columns:1fr} }
     @media (max-width:720px){
-      .navlinks{ display:none }     /* sembunyikan menu desktop */
-      .burger{ display:inline-flex }/* tampilkan burger */
-      h1{font-size:36px}
+      .navlinks{display:none} .burger{display:inline-flex} h1{font-size:36px}
       .panel{padding:16px}
+      .result-grid{grid-template-columns:1fr} /* stack QR over text */
+      .qr-box{margin-bottom:8px;justify-self:start}
     }
   </style>
 </head>
@@ -140,13 +119,9 @@
   <header>
     <div class="container nav">
       <div class="brand">
-        <div class="logo" aria-label="Afterim">
-          <span>aft<span class="e">e</span>rim</span>
-        </div>
+        <div class="logo" aria-label="Afterim"><span>aft<span class="e">e</span>rim</span></div>
         <div class="tagline">Short. Smart. Secure.</div>
       </div>
-
-      <!-- Menu desktop -->
       <nav class="navlinks" aria-label="Primary">
         <a href="#fitur">Fitur</a>
         <a href="#berkenalan">Video</a>
@@ -155,14 +130,8 @@
         <a class="btn" href="#demo">Coba Demo</a>
         <a class="btn primary" href="#">Masuk</a>
       </nav>
-
-      <!-- Burger (mobile) -->
-      <button class="burger" id="burger" aria-label="Buka menu" aria-expanded="false" aria-controls="mobileMenu">
-        <i></i>
-      </button>
+      <button class="burger" id="burger" aria-label="Buka menu" aria-expanded="false" aria-controls="mobileMenu"><i></i></button>
     </div>
-
-    <!-- Panel menu mobile -->
     <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
       <a href="#fitur">Fitur</a>
       <a href="#berkenalan">Video</a>
@@ -177,20 +146,23 @@
   <section class="hero">
     <div class="container hero-grid">
       <div class="reveal">
-        <h1>Short link yang <span style="background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent">aman</span> dan <b>gratis</b>.</h1>
+        <h1>Short link yang
+          <span style="background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent">aman</span>
+          dan <b>gratis</b>.
+        </h1>
         <p class="lead">Afterim Link menggabungkan pemendek tautan, QR code generator, dan <b>security scan</b> link.</p>
-        <div class="grid" style="grid-template-columns:1fr auto;gap:12px;margin-top:12px">
+        <div style="display:grid;grid-template-columns:1fr auto;gap:12px;margin-top:12px">
           <a class="btn primary" href="#demo">Coba Sekarang</a>
           <a class="btn accent" href="#pricing">Lihat Harga</a>
         </div>
         <div class="mini" style="margin-top:10px">• Scan keamanan otomatis • Custom slug • Custom domain • API</div>
       </div>
 
-      <!-- DEMO SIMPLE -->
+      <!-- Demo Shortener -->
       <div class="panel reveal" id="demo" aria-label="Demo Shortener">
         <div class="chip">Shield by Afterim — URL discan untuk memastikan web tidak mengandung phishing/malware/adware</div>
-
         <div style="height:12px"></div>
+
         <form id="shortForm" onsubmit="return simpleShort(event)">
           <label class="mini">Tempel URL kamu</label>
           <div class="field" style="margin-bottom:10px">
@@ -205,19 +177,16 @@
           <button class="btn primary" type="submit" style="width:100%">Shorten</button>
         </form>
 
-        <!-- Hasil -->
-        <div id="resultWrap" style="display:none;margin-top:16px">
-          <div class="result-line">
-            <div class="mini" id="shortLinkText" style="font-size:15px;color:#065f46"></div>
-            <button class="btn" id="copyBtn" onclick="copyShort()">Copy</button>
-          </div>
-
-          <!-- QR valid -->
-          <div id="qrWrap" style="margin-top:14px;display:flex;gap:14px;align-items:center">
-            <div id="qrcode" style="width:164px;height:164px;border:1px solid var(--ring);border-radius:12px;display:grid;place-items:center;background:#fff"></div>
-            <div class="mini">
-              <div><b>QR Code siap</b></div>
-              <div>Unduh: <a href="#" id="dlPng">PNG</a></div>
+        <!-- Hasil (space reserved, fade in) -->
+        <div id="resultWrap" aria-live="polite" aria-hidden="true">
+          <div class="result-grid">
+            <div class="qr-box" id="qrcode" aria-label="QR Code"></div>
+            <div>
+              <div class="result-line">
+                <div id="shortLinkText" class="short-text">—</div>
+                <div class="copy-wrap"><button class="btn" id="copyBtn" type="button" onclick="copyShort()">Copy</button></div>
+              </div>
+              <div class="mini dl-list">Unduh: <a href="#" id="dlPng">PNG</a></div>
             </div>
           </div>
         </div>
@@ -233,18 +202,9 @@
         <span class="chip" style="background:var(--muted);color:var(--ink-weak);border:1px solid var(--ring)">All-in-One: Short • QR • Bundle • Security</span>
       </div>
       <div class="cards">
-        <div class="card feature reveal">
-          <h3>Custom Branded Link</h3>
-          <p>Domain afterim.com atau domain milikmu, slug singkat dan mudah diingat.</p>
-        </div>
-        <div class="card feature reveal">
-          <h3>Security Scan</h3>
-          <p>Deteksi phishing, malware, dan adware sebelum link dipublikasikan. Amankan setiap klik.</p>
-        </div>
-        <div class="card feature reveal">
-          <h3>QR Code Generator</h3>
-          <p>Otomatis, bisa pilih warna & logo—cocok untuk poster, kemasan, atau kartu nama.</p>
-        </div>
+        <div class="card feature reveal"><h3>Custom Branded Link</h3><p>Domain afterim.com atau domain milikmu, slug singkat dan mudah diingat.</p></div>
+        <div class="card feature reveal"><h3>Security Scan</h3><p>Deteksi phishing, malware, dan adware sebelum link dipublikasikan. Amankan setiap klik.</p></div>
+        <div class="card feature reveal"><h3>QR Code Generator</h3><p>Otomatis, bisa pilih warna & logo—cocok untuk poster, kemasan, atau kartu nama.</p></div>
       </div>
     </div>
   </section>
@@ -262,8 +222,7 @@
           title="Afterim Link - Perkenalan"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen>
-        </iframe>
+          allowfullscreen></iframe>
       </div>
     </div>
   </section>
@@ -277,17 +236,13 @@
       </div>
       <div class="panel reveal" style="padding:0">
         <table aria-label="Positioning Comparison">
-          <thead>
-          <tr>
-            <th>Feature</th><th>Bit.ly</th><th>s.id</th><th>Linktree</th><th>Afterim Link</th>
-          </tr>
-          </thead>
+          <thead><tr><th>Feature</th><th>Bit.ly</th><th>s.id</th><th>Linktree</th><th>Afterim Link</th></tr></thead>
           <tbody>
-          <tr><td>Short Link</td><td><span class="tick"></span></td><td><span class="tick"></span></td><td><span class="cross"></span></td><td><span class="tick"></span></td></tr>
-          <tr><td>Custom Slug</td><td><span class="tick"></span> <span class="mini">(premium)</span></td><td><span class="tick"></span></td><td><span class="cross"></span></td><td><span class="tick"></span></td></tr>
-          <tr><td>QR Code</td><td><span class="tick"></span> <span class="mini">(basic)</span></td><td><span class="cross"></span></td><td><span class="cross"></span></td><td><span class="tick"></span> <span class="mini">(custom)</span></td></tr>
-          <tr><td>Link-in-Bio Page</td><td><span class="cross"></span></td><td><span class="cross"></span></td><td><span class="tick"></span></td><td><span class="tick"></span></td></tr>
-          <tr><td><b>Security Scan</b></td><td><span class="cross"></span></td><td><span class="cross"></span></td><td><span class="cross"></span></td><td><span class="tick"></span></td></tr>
+            <tr><td>Short Link</td><td><span class="tick"></span></td><td><span class="tick"></span></td><td><span class="cross"></span></td><td><span class="tick"></span></td></tr>
+            <tr><td>Custom Slug</td><td><span class="tick"></span> <span class="mini">(premium)</span></td><td><span class="tick"></span></td><td><span class="cross"></span></td><td><span class="tick"></span></td></tr>
+            <tr><td>QR Code</td><td><span class="tick"></span> <span class="mini">(basic)</span></td><td><span class="cross"></span></td><td><span class="cross"></span></td><td><span class="tick"></span> <span class="mini">(custom)</span></td></tr>
+            <tr><td>Link-in-Bio Page</td><td><span class="cross"></span></td><td><span class="cross"></span></td><td><span class="tick"></span></td><td><span class="tick"></span></td></tr>
+            <tr><td><b>Security Scan</b></td><td><span class="cross"></span></td><td><span class="cross"></span></td><td><span class="cross"></span></td><td><span class="tick"></span></td></tr>
           </tbody>
         </table>
       </div>
@@ -302,24 +257,9 @@
         <span class="chip" style="background:#fff;border:1px solid var(--ring)">Bisa upgrade kapan saja</span>
       </div>
       <div class="pricing">
-        <div class="card price reveal">
-          <h3>Starter</h3>
-          <div class="amt">Gratis</div>
-          <p class="mini">Short link dasar, custom slug, QR code basic.</p>
-          <a class="btn" href="#">Mulai Gratis</a>
-        </div>
-        <div class="card price reveal" style="border:2px solid var(--ink)">
-          <h3>Pro</h3>
-          <div class="amt">Rp49.000/bln</div>
-          <p class="mini">Template bundle premium, export data, API.</p>
-          <a class="btn primary" href="#">Coba Pro</a>
-        </div>
-        <div class="card price reveal">
-          <h3>Business</h3>
-          <div class="amt">Hubungi Kami</div>
-          <p class="mini">Custom domain, multi-user, SLA & dukungan prioritas.</p>
-          <a class="btn" href="#">Kontak Sales</a>
-        </div>
+        <div class="card price reveal"><h3>Starter</h3><div class="amt">Gratis</div><p class="mini">Short link dasar, custom slug, QR code basic.</p><a class="btn" href="#">Mulai Gratis</a></div>
+        <div class="card price reveal" style="border:2px solid var(--ink)"><h3>Pro</h3><div class="amt">Rp49.000/bln</div><p class="mini">Template bundle premium, export data, API.</p><a class="btn primary" href="#">Coba Pro</a></div>
+        <div class="card price reveal"><h3>Business</h3><div class="amt">Hubungi Kami</div><p class="mini">Custom domain, multi-user, SLA & dukungan prioritas.</p><a class="btn" href="#">Kontak Sales</a></div>
       </div>
     </div>
   </section>
@@ -332,18 +272,16 @@
     </div>
   </div>
 
-  <!-- QRCode library (valid QR) -->
+  <!-- QRCode library (local asset) -->
   <script src="./assets/js/qrcode.min.js"></script>
-
   <script>
     // =========================
     // KONFIGURASI BACKEND (GAS)
-    // Ganti dengan URL Web App Google Apps Script lo:
-    // Contoh: "https://script.google.com/macros/s/DEPLOY_ID/exec"
-    const API_URL = "https://script.google.com/macros/s/AKfycbyfkCpN2QjZ71fStLXxKcs3f96bqX5Z1LZ4IIftOZTatjZ5c4QSt3eUie2ue3DUProz/exec"; // <-- ISI DI SINI
+    // Ubah ke URL Web App GAS kamu:
+    const API_URL = "https://script.google.com/macros/s/AKfycbyfkCpN2QjZ71fStLXxKcs3f96bqX5Z1LZ4IIftOZTatjZ5c4QSt3eUie2ue3DUProz/exec";
     // =========================
 
-    // Toggle burger menu mobile
+    // Burger
     const burger = document.getElementById('burger');
     const mobileMenu = document.getElementById('mobileMenu');
     function toggleMenu(open){
@@ -355,76 +293,49 @@
     burger.addEventListener('click', ()=> toggleMenu());
     mobileMenu.addEventListener('click', (e)=>{ if(e.target.tagName==='A') toggleMenu(false); });
     document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') toggleMenu(false); });
-    document.addEventListener('click', (e)=>{
-      if(!mobileMenu.contains(e.target) && !burger.contains(e.target)) toggleMenu(false);
-    });
+    document.addEventListener('click', (e)=>{ if(!mobileMenu.contains(e.target) && !burger.contains(e.target)) toggleMenu(false); });
 
     // Reveal on scroll
     const reveals = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target);} });
-    },{threshold:.12});
+    const io = new IntersectionObserver((entries)=>{ entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target);} }); },{threshold:.12});
     reveals.forEach(el=>io.observe(el));
 
-    // Utilities
-    function randSlug(n=5){ return Math.random().toString(36).slice(2,2+n); }
-
-    // Demo shortener + valid QR (via GAS)
+    // Shorten + QR
     async function simpleShort(e){
       e.preventDefault();
       const url = document.getElementById('longUrl').value.trim();
-      const custom = (document.getElementById('slugInput').value || '').trim()
-        .replace(/[^a-zA-Z0-9-_]/g,'').toLowerCase();
-
-      if(!/^https?:\/\//i.test(url)){
-        alert('URL harus diawali http:// atau https://'); return false;
-      }
-      if(!API_URL){
-        alert('Set dulu API_URL ke Web App GAS lo.'); return false;
-      }
+      const custom = (document.getElementById('slugInput').value || '').trim().replace(/[^a-zA-Z0-9-_]/g,'').toLowerCase();
+      if(!/^https?:\/\//i.test(url)){ alert('URL harus diawali http:// atau https://'); return false; }
+      if(!API_URL){ alert('Set dulu API_URL ke Web App GAS lo.'); return false; }
 
       try{
-        const resp = await fetch(API_URL + '?action=shorten', {
-          method:'POST',
-          headers:{ 'Content-Type':'text/plain;charset=utf-8' },
-          body: JSON.stringify({ long_url: url, slug: custom })
-        });
+        const resp = await fetch(API_URL + '?action=shorten', { method:'POST', headers:{ 'Content-Type':'text/plain;charset=utf-8' }, body: JSON.stringify({ long_url: url, slug: custom }) });
         const data = await resp.json().catch(()=>({ok:false,error:'Bad response'}));
-        if(!resp.ok || !data.ok){
-          alert('Gagal: ' + (data.error || ('HTTP '+resp.status)));
-          return false;
-        }
+        if(!resp.ok || !data.ok){ alert('Gagal: ' + (data.error || ('HTTP '+resp.status))); return false; }
 
-        const shortUrl = data.short_url; // dari GAS
+        const shortUrl = data.short_url;
         const out = document.getElementById('shortLinkText');
         out.innerHTML = (data.secure ? 'Link aman ✔ — ' : 'Perlu verifikasi — ') + `<b>${shortUrl}</b>`;
         out.dataset.url = shortUrl;
-        document.getElementById('resultWrap').style.display = 'block';
 
-        // generate QR valid
+        // QR
         const qrel = document.getElementById('qrcode');
         qrel.innerHTML = '';
-        new QRCode(qrel, {
-          text: shortUrl, width: 160, height: 160,
-          colorDark : "#111827", colorLight : "#ffffff",
-          correctLevel : QRCode.CorrectLevel.M
-        });
+        new QRCode(qrel, { text: shortUrl, width: 160, height: 160, colorDark:"#111827", colorLight:"#ffffff", correctLevel: QRCode.CorrectLevel.M });
 
-        // set unduhan PNG
+        // PNG download
         setTimeout(()=>{
           const img = qrel.querySelector('img') || qrel.querySelector('canvas');
-          if(img && img.toDataURL){
-            document.getElementById('dlPng').href = img.toDataURL("image/png");
-            document.getElementById('dlPng').download = 'afterim-qr.png';
-          }else if(img && img.src){
-            document.getElementById('dlPng').href = img.src;
-            document.getElementById('dlPng').download = 'afterim-qr.png';
-          }
+          const link = document.getElementById('dlPng');
+          if(img && img.toDataURL){ link.href = img.toDataURL("image/png"); link.download = 'afterim-qr.png'; }
+          else if(img && img.src){ link.href = img.src; link.download = 'afterim-qr.png'; }
         }, 120);
 
-      }catch(err){
-        alert('Request error: ' + err.message);
-      }
+        // fade-in (no layout jump)
+        const wrap = document.getElementById('resultWrap');
+        wrap.classList.add('show'); wrap.setAttribute('aria-hidden','false');
+
+      }catch(err){ alert('Request error: ' + err.message); }
 
       return false;
     }
@@ -435,11 +346,9 @@
       if(!text) return;
       try{
         await navigator.clipboard.writeText(text);
-        const btn = document.getElementById('copyBtn');
-        const old = btn.textContent;
-        btn.textContent = 'Copied!';
-        btn.classList.add('accent'); btn.classList.remove('primary');
-        setTimeout(()=>{ btn.textContent=old; btn.classList.remove('accent'); btn.classList.add('primary'); }, 900);
+        const btn = document.getElementById('copyBtn'); const old = btn.textContent;
+        btn.textContent = 'Copied!'; btn.classList.add('accent'); btn.classList.remove('primary');
+        setTimeout(()=>{ btn.textContent = old; btn.classList.remove('accent'); btn.classList.add('primary'); }, 900);
       }catch(e){ alert('Gagal menyalin'); }
     }
 
@@ -448,6 +357,3 @@
   </script>
 </body>
 </html>
-
-
-
